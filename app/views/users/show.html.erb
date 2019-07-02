@@ -7,18 +7,20 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
+
+
   <section id="github-box" >
     <h1>Github Info:</h1>
 
 	  <% facade.repos.each do |repo| %>
 			<ul class="repo-list">
-				<%= repo.name %>
-				<%= repo.owner %>
-				<%= repo.html_url %>
+				<li class="repo-name"><%= repo.name %></li>
+				<li class="repo-name"><%= repo.owner %></li>
+				<li class="repo-name"><%= repo.html_url %></li>
 			</ul>
 		<% end %>
-
   </section>
+
   <section>
     <h1>Bookmarked Segments</h1>
   </section>
