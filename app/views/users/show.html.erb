@@ -12,5 +12,8 @@
   </section>
   <section class="github_section">
     <h1>Github Repositories</h1>
+    <% facade.repositories(5).each do |repository| %>
+      <%= link_to repository.name, repository.url %><br>
+    <% end %>
   </section>
 </section>
