@@ -15,8 +15,7 @@
 	  <% facade.repos.each do |repo| %>
 			<ul class="repo-list">
 				<li class="repo-name"><%= repo.name %></li>
-				<li class="repo-name"><%= repo.owner %></li>
-				<li class="repo-name"><%= repo.html_url %></li>
+				<li class="repo-html_url"><%= link_to repo.html_url, repo.html_url %></li>
 			</ul>
 		<% end %>
   </section>

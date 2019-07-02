@@ -8,9 +8,11 @@ class UserDashboardFacade
 			faraday.adapter Faraday.default_adapter
 		end
 
-		conn.get do |req|
-			req.headers['Authorization'] = 'token' + ENV["GITHUB_API_KEY"]
+		response = conn.get do |req|
+			req.headers['Authorization'] = 'token ' + ENV["GITHUB_API_KEY"]
 		end
-		repos = []
+		
+		repos = JSON.parse(response.body)[0..4]
+		repos.map {|repo| Repo.new(repo)}
 	end	
 end
