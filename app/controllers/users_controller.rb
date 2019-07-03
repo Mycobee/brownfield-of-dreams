@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
+binding.pry
     render locals: {
-      facade: UserDashboardFacade.new(ENV["GITHUB_API_KEY"])
+      facade: UserDashboardFacade.new(current_user.token)
     }
     #TODO update with Oauth token
   end

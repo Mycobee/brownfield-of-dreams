@@ -1,4 +1,5 @@
 class UserDashboardFacade
+binding.pry
   def initialize(token)
     @token = token
   end
