@@ -12,6 +12,13 @@ class UserDashboardFacade
     repo_objects.take(limit)
   end
 
+  def followers
+    followers = github_service.find_followers
+    follower_objects = followers.map do |follower|
+      Follower.new(follower)
+    end
+  end
+
   private
 
   def github_service
