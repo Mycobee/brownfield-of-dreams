@@ -14,8 +14,15 @@ class UserDashboardFacade
 
   def followers
     followers = github_service.find_followers
-    follower_objects = followers.map do |follower|
-      Follower.new(follower)
+    users = followers.map do |user|
+      GithubUser.new(user)
+    end
+  end
+
+  def users_following
+    following = github_service.find_users_following
+    users = following.map do |user|
+      GithubUser.new(user)
     end
   end
 
