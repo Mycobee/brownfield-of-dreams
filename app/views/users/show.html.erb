@@ -1,6 +1,6 @@
 <section class="dashboard-main">
 	  <h1> <%= current_user.first_name %>'s Dashboard </h1>
-	
+
 	  <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
 	  <h3>Account Details</h3>
 	  <ul>
@@ -19,6 +19,14 @@
 	        <li><%= link_to repo.name, repo.html_url %></li><br>
 	      <% end %>
 	      </ul>
+				<section class="followers_section">
+					<h1>Github Followers</h1>
+					<ul>
+						<% facade.followers.each do |follower|  %>
+							<li><%= link_to follower.name, follower.html_url %></li><br>
+						<% end %>
+					</ul>
+				</section>
 	  </section>
 	<% end %>
 </section>
