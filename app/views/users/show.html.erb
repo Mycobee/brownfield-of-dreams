@@ -19,6 +19,7 @@
 	        <li><%= link_to repo.name, repo.html_url %></li><br>
 	      <% end %>
 	      </ul>
+				<% if !facade.followers.nil? %>
 				<section class="followers_section">
 					<h1>Github Followers</h1>
 					<ul>
@@ -27,6 +28,17 @@
 						<% end %>
 					</ul>
 				</section>
+				<% end %>
+				<% if !facade.users_following.nil? %>
+				<section class="following_section">
+					<h1>Following on Github</h1>
+					<ul>
+						<% facade.users_following.each do |user| %>
+						<li><%= link_to user.name, user.html_url %></li>
+						<% end %>
+					</ul>
+				</section>
+				<% end %>
 	  </section>
 	<% end %>
 </section>
