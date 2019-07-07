@@ -19,9 +19,25 @@
 	        <li><%= link_to repo.name, repo.html_url %></li><br>
 	      <% end %>
 	      </ul>
+
+	    <h1>Followers:</h1>
+	      <ul>
+	      <% facade.followers(5).each do |gh_user| %>
+	        <li><%= link_to gh_user.login, gh_user.html_url %></li><br>
+	      <% end %>
+	      </ul>
+
+	    <h1>Following:</h1>
+	      <ul>
+	      <% facade.following(5).each do |gh_user| %>
+	        <li><%= link_to gh_user.login, gh_user.html_url %></li><br>
+	      <% end %>
+	      </ul>
 	  </section>
-	<% else %>
+	<% end %>	
+	
+
+
 		<%= link_to "Connect to Github",
   	"https://github.com/login/oauth/authorize?client_id=586cd4146e2b7b6b2621&scope=repo" %>
-	<% end %>	
 </section>

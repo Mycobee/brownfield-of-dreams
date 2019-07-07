@@ -10,6 +10,14 @@ class GithubService
     get_url("/user/repos")
   end
 
+  def find_followers
+    get_url("/user/followers")
+  end
+
+  def find_following
+    get_url("/user/following")
+  end
+
   def get_url(url)
     response = @conn.get(url)
     JSON.parse(response.body, symbolize_names: true)
