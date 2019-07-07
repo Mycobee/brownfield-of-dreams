@@ -20,5 +20,8 @@
 	      <% end %>
 	      </ul>
 	  </section>
-	<% end %>
+	<% else %>
+		<%= link_to "Connect to Github",
+  	"https://github.com/login/oauth/authorize?client_id=586cd4146e2b7b6b2621&scope=repo" %>
+	<% end %>	
 </section>
