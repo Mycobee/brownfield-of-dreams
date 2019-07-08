@@ -3,6 +3,17 @@ class UserDashboardFacade
     @token = token
   end
 
+  def friends(limit)
+    user = User.find(@token.user_id)
+    user.friends.take(limit)
+  end
+
+  def possible_friend?(github_user)
+    friend = User.find_by(html_url: github_user.html_url)
+    user = User.find(@token.user_id)
+    return !friend.nil? && !user.friends.include?(friend)
+  end
+
   def repos(limit)
 		return nil if @token.nil? || @token.github_token.nil?
     repos = github_service.find_repositories
