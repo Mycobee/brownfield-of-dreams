@@ -24,6 +24,9 @@
 	      <ul>
 	      <% facade.followers(5).each do |github_user| %>
 	        <li><%= link_to github_user.login, github_user.html_url %></li><br>
+					<% if current_user.friendshipy?(github_user) %>
+						<%= button_to "Add Friend", friendships_path %>
+					<% end %>
 	      <% end %>
 	      </ul>
 
