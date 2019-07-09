@@ -9,6 +9,10 @@ class TutorialFacade < SimpleDelegator
   def current_video
     if @video_id 
       videos.find(@video_id)
+		elsif 
+			no_videos?
+			add_default_video
+			videos.first
     else
       videos.first
     end

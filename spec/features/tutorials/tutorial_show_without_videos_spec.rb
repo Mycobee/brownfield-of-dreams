@@ -6,5 +6,8 @@ feature "On a tutorial show without a video" do
 			
 		visit tutorial_path(tutorial)
 		
+		within(".title-bookmark") do
+			expect(page).to have_content("Tutorial Has No Videos")
+		end
 	end
 end
