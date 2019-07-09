@@ -7,8 +7,11 @@ describe Video, type: :model do
 		it { should belong_to(:tutorial) }
 	end
 
-	describe  "#instance methods" do
-			
+	describe  "instance methods" do
+		it "#default_video?" do
+			default_video = Video.new(title: "Tutorial Has No Videos")
+			expect(default_video.default_video?).to be_truthy
+		end
 	end
 end
 
