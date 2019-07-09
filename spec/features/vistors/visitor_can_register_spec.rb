@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'vister can create an account', :js do
   it ' visits the home page' do
-    VCR.use_cassette("github/github_repositories", :allow_playback_repeats => true) do
+    VCR.use_cassette('github/github_repositories', allow_playback_repeats: true) do
       email = 'jimbob@aol.com'
       first_name = 'Jim'
       last_name = 'Bob'
