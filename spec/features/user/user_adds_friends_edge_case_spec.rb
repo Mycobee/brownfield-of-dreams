@@ -7,6 +7,6 @@ describe 'Add friend edge case', type: :request do
     post '/friendships', params: { friend_html: 'test' }
 
     expect(response).to redirect_to(dashboard_path)
-    expect(flash[:message]).to be_present
+    expect(flash[:message]).to eq('Invalid Friend.')
   end
 end
