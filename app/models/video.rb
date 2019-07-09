@@ -8,4 +8,7 @@ class Video < ApplicationRecord
 	def default_video?
 		title == "Tutorial Has No Videos" 
 	end
+
+  validates_presence_of :position
+
 end

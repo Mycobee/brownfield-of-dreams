@@ -6,6 +6,10 @@ describe Video, type: :model do
 		it { should have_many(:users).through(:user_videos) }
 		it { should belong_to(:tutorial) }
 	end
+  
+  describe "validations" do
+    it {should validate_presence_of :position}
+  end
 
 	describe  "instance methods" do
 		it "#default_video?" do
@@ -14,4 +18,3 @@ describe Video, type: :model do
 		end
 	end
 end
-
