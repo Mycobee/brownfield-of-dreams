@@ -6,6 +6,6 @@ class Video < ApplicationRecord
   belongs_to :tutorial
 
 	def default_video?
-		title == "Tutorial Has No Videos" && id.nil?
+		title == "Tutorial Has No Videos" 
 	end
 end
