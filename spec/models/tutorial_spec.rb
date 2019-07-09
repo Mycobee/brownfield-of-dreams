@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe Tutorial, type: :model do
+	before :each do
+		@tutorial_1 = create(:tutorial)
+		@tutorial_2 = create(:tutorial, classroom: true)
+	end
+
 	describe 'validations' do
 		it { should validate_presence_of :title }
 	end
@@ -18,6 +23,12 @@ RSpec.describe Tutorial, type: :model do
 			tutorial.add_default_video
 			expect(tutorial.videos.first.title).to eq("Tutorial Has No Videos")
 			expect(tutorial.videos.first.description).to eq("")
+		end
+	end
+	
+	describe 'class methods' do
+		it '.non_classroom?' do
+			expect(Tutorial.non_classroom.first).to eq(@tutorial_1)
 		end
 	end
 end
