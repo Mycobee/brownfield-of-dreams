@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GithubController < ApplicationController
 	def create
 		token	= auth_hash['credentials']['token']
@@ -6,9 +8,9 @@ class GithubController < ApplicationController
 		redirect_to dashboard_path
 	end
 
-	private 
+  private
 
-	def auth_hash
-		request.env['omniauth.auth']
-	end
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 end

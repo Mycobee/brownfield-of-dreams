@@ -1,5 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
+require 'rails_helper'
 feature "github oauth" do
 	before :each do
 		OmniAuth.config.test_mode = true
@@ -9,33 +10,21 @@ feature "github oauth" do
 			:info => { "urls" => { "GitHub" => "http://github.com/Mycobee" }}
 		})
 		@user = create(:user)
-		
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-	end
+  end
 
-	it "Starts without github access and grants after oauth" do
-		VCR.use_cassette('github/oauth') do
-			visit dashboard_path
+  it 'Starts without github access and grants after oauth' do
+    VCR.use_cassette('github/oauth') do
+      visit dashboard_path
 
-			expect(page).to_not have_selector(".github_section")
+      expect(page).to_not have_selector('.github_section')
 
-			click_link("Connect to Github")
+      click_link('Connect to Github')
 
-			expect(current_path).to eq(dashboard_path)
+      expect(current_path).to eq(dashboard_path)
 
-			expect(page).to have_selector(".github_section")
-		end
-	end
+      expect(page).to have_selector('.github_section')
+    end
+  end
 end
-
-
-
-
-
-#As a user
-#When I visit /dashboard
-#Then I should see a link that is styled like a button that says "Connect to Github"
-#And when I click on "Connect to Github"
-#Then I should go through the OAuth process
-#And I should be redirected to /dashboard
-#And I should see all of the content from the previous Github stories (repos, followers, and following)

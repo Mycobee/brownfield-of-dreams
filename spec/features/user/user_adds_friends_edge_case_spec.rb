@@ -1,10 +1,12 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-describe "Add friend edge case", type: :request do
-  it "shows a message if an invalid user is sent" do
-		post '/friendships', { params: {friend_html: "test"}}
+require 'rails_helper'
+
+describe 'Add friend edge case', type: :request do
+  it 'shows a message if an invalid user is sent' do
+    post '/friendships', params: { friend_html: 'test' }
 
     expect(response).to redirect_to(dashboard_path)
-		expect(flash[:message]).to be_present
+    expect(flash[:message]).to eq('Invalid Friend.')
   end
 end
