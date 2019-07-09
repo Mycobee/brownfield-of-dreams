@@ -49,6 +49,6 @@ class UserDashboardFacade
   private
 
   def github_service
-    GithubService.new(@token.github_token)
+    @github_service ||= GithubService.new(@token.github_token)
   end
 end
