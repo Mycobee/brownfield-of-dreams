@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'User' do
   it 'user can sign in' do
-    VCR.use_cassette('github/github_repositories', allow_playback_repeats: true) do
+    VCR.use_cassette('github/repositories', allow_playback_repeats: true) do
       user = create(:user)
 
       visit '/'
@@ -26,7 +26,7 @@ describe 'User' do
   end
 
   it 'can log out', :js do
-    VCR.use_cassette('github/github_repositories', allow_playback_repeats: true) do
+    VCR.use_cassette('github/repositories', allow_playback_repeats: true) do
       user = create(:user)
 
       visit login_path
