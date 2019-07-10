@@ -9,14 +9,11 @@ feature "As a visitor on the root path" do
 		expect(page).to have_link(tutorial_1.title)
 		expect(page).to_not have_link(tutorial_2.title)
 
-		visit tutorial_path(tutorial_2)
-
-		within '.alert-error' do
-      page.should have_content("Page page_not_found doesn't exist")
-    end
+		
+		expect{visit tutorial_path(tutorial_2)}.to raise_error( ActionController::RoutingError )
 
 		visit tutorial_path(tutorial_1)
-		expect(page).to have_link(tutorial_1.title)
+		expect(page).to have_content(tutorial_1.title)
 
 		visit tutorials_path
 		expect(page).to have_link(tutorial_1.title)
