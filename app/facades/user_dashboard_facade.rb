@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class UserDashboardFacade
-  def initialize(token)
+  def initialize(user, token)
+    @current_user = user
     @token = token
   end
 
@@ -13,6 +14,10 @@ class UserDashboardFacade
       Repository.new(repo)
     end
     repo_objects.take(limit)
+  end
+
+  def bookmarks
+    User.bookmarks(@current_user)
   end
 
   def followers(limit)
@@ -37,13 +42,12 @@ class UserDashboardFacade
 
   def valid_friend?(github_user_email)
     friend = User.find_by(html_url: github_user_email)
-    user_friends = User.find(@token.user_id).friends
+    user_friends = @current_user.friends
     !friend.nil? && !user_friends.include?(friend)
   end
 
   def friends(limit)
-    user = User.find(@token.user_id)
-    user.friends.take(limit)
+    @current_user.friends.take(limit)
   end
 
   private
