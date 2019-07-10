@@ -6,7 +6,7 @@ feature "As a visitor on the root path" do
 		tutorial_2 = create(:tutorial, classroom: true)		
 		visit root_path		
 
-		expect(page).to have_link(tutorial_1.name)
-		expect(page).to_not have_link(tutorial_2.name)
+		expect(page).to have_link(tutorial_1.title)
+		expect(page).to_not have_link(tutorial_2.title)
 	end
 end
