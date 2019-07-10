@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   def show
     render locals: {
-      facade: UserDashboardFacade.new(current_user.token)
+      facade: UserDashboardFacade.new(current_user, current_user.token)
     }
     # TODO: update with Oauth token
   end
