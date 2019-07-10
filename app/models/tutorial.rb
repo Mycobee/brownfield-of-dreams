@@ -10,6 +10,9 @@ class Tutorial < ApplicationRecord
 		where(classroom: false)
 	end
 
+	def non_classroom?
+		classroom == false
+	end
 	def no_videos?
 		videos.size == 0
 	end

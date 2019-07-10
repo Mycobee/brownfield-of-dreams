@@ -26,7 +26,7 @@ RSpec.describe Tutorial, type: :model do
 		end
 
 		it '#non_classroom?' do
-			expect(@tutorial_1.non_classroom).to be_truthy
+			expect(@tutorial_1.non_classroom?).to be_truthy
 		end
 	end
 	
