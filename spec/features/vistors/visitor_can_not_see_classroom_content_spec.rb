@@ -11,10 +11,12 @@ feature "As a visitor on the root path" do
 
 		visit tutorial_path(tutorial_2)
 
-		expect(response.status).to eq(404)
-		
+		within '.alert-error' do
+      page.should have_content("Page page_not_found doesn't exist")
+    end
+
 		visit tutorial_path(tutorial_1)
-		expect(page).to have_content(tutorial_1.title)
+		expect(page).to have_link(tutorial_1.title)
 
 		visit tutorials_path
 		expect(page).to have_link(tutorial_1.title)
