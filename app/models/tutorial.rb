@@ -6,6 +6,13 @@ class Tutorial < ApplicationRecord
   accepts_nested_attributes_for :videos
 	validates_presence_of :title
 
+	def self.non_classroom
+		where(classroom: false)
+	end
+
+	def non_classroom?
+		classroom == false
+	end
 	def no_videos?
 		videos.size == 0
 	end
@@ -18,3 +25,4 @@ class Tutorial < ApplicationRecord
 		end	
 	end
 end
+

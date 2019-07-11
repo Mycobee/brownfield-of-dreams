@@ -7,8 +7,20 @@
 	    <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
 	    <li> <%= current_user.email%> </li>
 	  </ul>
-	  <section>
+	  <section class="bookmarks_section">
 	    <h1>Bookmarked Segments</h1>
+			<ul>
+				<% facade.bookmarks.each do |tutorial| %>
+					<h4><%= tutorial.title %></h4>
+					<section id="tutorial_<%= tutorial.id %>_section" >
+						<% tutorial.videos.each do |video| %>
+							<section class="video_frame">
+								<iframe id="video_<%= video.id %>" src=<%="https://www.youtube.com/embed/#{video.video_id}" %> width="450" height="300"></iframe>
+							</section>
+						<% end %>
+					</section>
+				<% end %>
+			</ul>
 	  </section>
 
 	<% if !current_user.token.nil? %>

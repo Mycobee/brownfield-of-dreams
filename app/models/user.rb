@@ -12,4 +12,11 @@ class User < ApplicationRecord
   validates_presence_of :first_name
   enum role: %i[default admin]
   has_secure_password
+
+  def self.bookmarks(user)
+    Tutorial.includes(:videos)
+    .order(:position, :id)
+    .where("videos.id" => user.videos)
+    .references(:video)
+  end
 end
