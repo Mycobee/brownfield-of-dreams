@@ -9,7 +9,7 @@ describe "As a guest on the registration path who fills in all fields" do
 		
 			expect(current_path).to eq("/register")
 
-			fill_in('user[email]', with: 'test@test.test')
+			fill_in('user[email]', with: 'stringer525@gmail.com')
 			fill_in('user[first_name]', with: 'test') 
 			fill_in('user[last_name]', with: 'test')
 			fill_in('user[password]', with: 'test')
@@ -18,7 +18,8 @@ describe "As a guest on the registration path who fills in all fields" do
 			click_button 'Create Account'
 
 			expect(current_path).to eq(dashboard_path)
-			expect(page).to have_content("Logged in as test test")
+			expect(page).to have_content("Your activation email has been sent")
+			
 			expect(page).to have_content("This account has not yet been activated. Please check your email.")
 		end	
 	end

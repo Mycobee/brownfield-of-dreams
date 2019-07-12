@@ -1,6 +1,6 @@
 class RegistrationNotifierMailer < ApplicationMailer
-	def inform(user, friend_contact)
+	def inform(user)
     @user = user
-    mail(to: friend_contact, subject: "Account Activation")
+    mail(to: user.email, subject: "Account Activation")
   end
 end

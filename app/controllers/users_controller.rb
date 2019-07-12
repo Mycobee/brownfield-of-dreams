@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
    if user.save
+			RegistrationNotifierMailer.inform(user).deliver_now
       session[:user_id] = user.id
-			RegistrationNotificationMailer.inform(current_user, params[:email]).deliver_now
     	flash[:notice] = "Your activation email has been sent"
       redirect_to dashboard_path
     else
