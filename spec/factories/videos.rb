@@ -5,6 +5,9 @@ FactoryBot.define do
     title { Faker::Pokemon.name }
     description { Faker::SiliconValley.motto }
     video_id { Faker::Crypto.md5 }
+    sequence :position do |n|
+      "#{n}"
+    end
     tutorial
   end
 end

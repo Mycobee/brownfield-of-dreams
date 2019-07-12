@@ -4,8 +4,9 @@ require 'rails_helper'
 
 describe UserDashboardFacade do
   before :each do
-    token = Token.create(github_token: ENV['GITHUB_API_KEY'])
-    @test_facade = UserDashboardFacade.new(token)
+    user = create(:user)
+    user.token = Token.create(github_token: ENV['GITHUB_API_KEY'])
+    @test_facade = UserDashboardFacade.new(user, user.token)
   end
 
   it 'exists' do
