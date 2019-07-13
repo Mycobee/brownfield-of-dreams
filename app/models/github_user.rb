@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# a model storing github login information
 class GithubUser
   attr_reader :login,
               :html_url

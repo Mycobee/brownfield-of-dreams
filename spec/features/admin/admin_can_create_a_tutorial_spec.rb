@@ -3,7 +3,8 @@ require "rails_helper"
 describe "As an admin when I visit /admin/tutorials/new" do
   scenario "I am able to create a new tutorial" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController).to \
+    receive(:current_user).and_return(admin)
 
     visit new_admin_tutorial_path
 

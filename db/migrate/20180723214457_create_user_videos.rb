@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# creates a user video joins table with user id and video id attributes
 class CreateUserVideos < ActiveRecord::Migration[5.2]
   def change
     create_table :user_videos do |t|

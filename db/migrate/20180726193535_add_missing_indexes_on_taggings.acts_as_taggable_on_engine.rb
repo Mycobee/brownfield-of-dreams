@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# adds additional index to tags table
 # This migration comes from acts_as_taggable_on_engine (originally 6)
 if ActiveRecord.gem_version >= Gem::Version.new('5.0')
   class AddMissingIndexesOnTaggings < ActiveRecord::Migration[4.2]; end
