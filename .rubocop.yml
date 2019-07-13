@@ -91,7 +91,7 @@ Metrics/LineLength:
     - 'db/schema.rb'
     - 'lib/tasks/youtube_seed.rake' 
     #longer lines needed for data generation
-  IgnoredPatterns: ['#']
+  IgnoredPatterns: ['#', 'allow_any_instance_of', 'VCR.use_cassette']
 #helpful code comments ignored.  Rails.application blocks are longer than rubocop likes, but necessary. 
 
 Style/ClassAndModuleChildren:

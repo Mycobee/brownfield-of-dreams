@@ -11,7 +11,8 @@ feature 'As a visitor on the root path' do
     expect(page).to have_link(tutorial_1.title)
     expect(page).to_not have_link(tutorial_2.title)
 
-    expect { visit tutorial_path(tutorial_2) }.to raise_error(ActionController::RoutingError)
+    expected = ActionController::RoutingError
+    expect { visit tutorial_path(tutorial_2) }.to raise_error(expected)
 
     visit tutorial_path(tutorial_1)
     expect(page).to have_content(tutorial_1.title)

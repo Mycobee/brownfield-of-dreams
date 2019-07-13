@@ -21,7 +21,7 @@ describe "As a logged in user When I visit '/dashboard'" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
   end
 
-  it 'shows a list of all bookmarked segments under the Bookmarked Segments section' do
+  it 'shows the Bookmarked Segments section' do
     VCR.use_cassette('github/dashboard', allow_playback_repeats: true) do
       visit dashboard_path
       within('.bookmarks_section') do

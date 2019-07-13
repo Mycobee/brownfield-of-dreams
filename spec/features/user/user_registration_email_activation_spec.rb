@@ -19,12 +19,14 @@ describe 'As a guest on the registration path who fills in all fields' do
 
       click_button 'Create Account'
 
+      email_expected = 'Your activation email has been sent'
+      account_expected = 'This account has not yet been activated'
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content('Your activation email has been sent')
-      expect(page).to have_content('This account has not yet been activated. Please check your email.')
+      expect(page).to have_content(email_expected)
+      expect(page).to have_content(account_expected)
     end
 
-    it 'updates the user activation status when link url is clicked', type: :request do
+    it 'updates user activation status when link is clicked', type: :request do
       user = create(:user)
       get "/users/#{user.id}"
       user.reload
