@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
+# adds additional index to tags table
 # This migration comes from acts_as_taggable_on_engine (originally 6)
 if ActiveRecord.gem_version >= Gem::Version.new('5.0')
   class AddMissingIndexesOnTaggings < ActiveRecord::Migration[4.2]; end
 else
   class AddMissingIndexesOnTaggings < ActiveRecord::Migration; end
 end
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/LineLength, Style/GuardClause
 AddMissingIndexesOnTaggings.class_eval do
   def change
     add_index :taggings, :tag_id unless index_exists? :taggings, :tag_id
@@ -23,3 +25,4 @@ AddMissingIndexesOnTaggings.class_eval do
     end
   end
 end
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/LineLength, Style/GuardClause

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# a video model containing youtube urls
 class Video < ApplicationRecord
   has_many :user_videos
   has_many :users, through: :user_videos

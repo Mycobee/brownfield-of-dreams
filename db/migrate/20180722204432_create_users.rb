@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# creates a users table with email, name, password, and role attributes
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|

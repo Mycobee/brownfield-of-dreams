@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :tutorials, only: %i[show index]
-      resources :videos, only: [:show]
+      resources :videos, only: %i[show index]
     end
   end
 

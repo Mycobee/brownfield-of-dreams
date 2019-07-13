@@ -6,7 +6,8 @@ feature 'User' do
   before :each do
     user = create(:user)
     user.token = Token.create(github_token: ENV['GITHUB_API_KEY'])
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to \
+      receive(:current_user).and_return(user)
   end
 
   context 'As a logged in user when I visit my dashboard ' do

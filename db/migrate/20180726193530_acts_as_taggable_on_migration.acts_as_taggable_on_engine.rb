@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
+# creates a tags tables
 # This migration comes from acts_as_taggable_on_engine (originally 1)
 if ActiveRecord.gem_version >= Gem::Version.new('5.0')
   class ActsAsTaggableOnMigration < ActiveRecord::Migration[4.2]; end
 else
   class ActsAsTaggableOnMigration < ActiveRecord::Migration; end
 end
+# rubocop:disable Metrics/MethodLength
 ActsAsTaggableOnMigration.class_eval do
   def self.up
     create_table :tags do |t|
@@ -30,6 +32,7 @@ ActsAsTaggableOnMigration.class_eval do
     add_index :taggings, :tag_id
     add_index :taggings, %i[taggable_id taggable_type context]
   end
+  # rubocop:enable Metrics/MethodLength
 
   def self.down
     drop_table :taggings

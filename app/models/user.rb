@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# a user model that stores names, tokens, and friendships
 class User < ApplicationRecord
   has_one :token, dependent: :destroy
   has_many :user_videos

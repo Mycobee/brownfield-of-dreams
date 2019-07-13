@@ -12,9 +12,10 @@ describe 'As a user on dashboard path' do
     @user_2.token = Token.new(github_token: ENV['GITHUB_API_KEY_2'])
   end
 
-  scenario 'Links show up next to followers that have accounts in our system.' do
+  scenario 'Links are next to followers that have accounts in our system.' do
     VCR.use_cassette('github/dashboard_rob', allow_playback_repeats: true) do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_2)
+      allow_any_instance_of(ApplicationController).to \
+        receive(:current_user).and_return(@user_2)
       visit dashboard_path
       within('.github_followers_section') do
         expect(page).to have_button('Add to Friends')
@@ -22,9 +23,10 @@ describe 'As a user on dashboard path' do
     end
   end
 
-  scenario 'Links show up next to following that have accounts in our system.' do
+  scenario 'Links are next to following that have accounts in our system.' do
     VCR.use_cassette('github/dashboard_chris', allow_playback_repeats: true) do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      allow_any_instance_of(ApplicationController).to \
+        receive(:current_user).and_return(@user)
       visit dashboard_path
       within('.github_following_section') do
         expect(page).to have_button('Add to Friends')
@@ -34,7 +36,8 @@ describe 'As a user on dashboard path' do
 
   scenario 'Adds to friendships when clicked and updates friend list' do
     VCR.use_cassette('github/dashboard_chris', allow_playback_repeats: true) do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      allow_any_instance_of(ApplicationController).to \
+        receive(:current_user).and_return(@user)
       visit dashboard_path
       within('.github_following_section') do
         click_button('Add to Friends')
