@@ -5,8 +5,11 @@ AllCops:
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
     - 'bin/**/*'
+    #auto generated line lengths
     - 'node_modules/**/*'
-    - 'Rakefile'
+    
+     
+
   TargetRubyVersion: 2.4.1
 
 Naming/PredicateName:
@@ -81,3 +84,6 @@ Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*.rb'
 
+Metrics/LineLength:
+  IgnoredPatterns: ['#']
+#helpful code comments ignored.  Rails.application blocks are longer than rubocop likes, but necessary. 
