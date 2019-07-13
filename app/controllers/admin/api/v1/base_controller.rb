@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+#admin api base controller with helper methods and current user
 class Admin::Api::V1::BaseController < ActionController::API
   before_action :require_admin!
 

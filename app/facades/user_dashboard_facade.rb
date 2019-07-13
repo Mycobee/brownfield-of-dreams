@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+#this facade presents data for the user dashboard
 class UserDashboardFacade
   def initialize(user, token)
     @current_user = user

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # this service will change the position of videos if needed
-
 class TutorialSequencer
   def initialize(tutorial, sequenced_video_ids)
     @tutorial = tutorial

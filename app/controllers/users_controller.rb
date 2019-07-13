@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# user controller for new, create, account activation, and dashboard
 class UsersController < ApplicationController
   def show
     render locals: {
