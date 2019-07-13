@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-#controller for github oauth
+# controller for github oauth
 class GithubController < ApplicationController
   def create
     token = auth_hash['credentials']['token']

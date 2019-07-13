@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-#controller for user sessions within the app
+# controller for user sessions within the app
 class SessionsController < ApplicationController
   def new
     @user ||= User.new

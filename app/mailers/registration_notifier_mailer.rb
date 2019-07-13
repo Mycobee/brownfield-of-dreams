@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-#Registration email mailer for new users
+# Registration email mailer for new users
 class RegistrationNotifierMailer < ApplicationMailer
   def inform(user)
     @user = user

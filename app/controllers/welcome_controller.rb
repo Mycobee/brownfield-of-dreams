@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-#Welcome controller for non users
+# Welcome controller for non users
 class WelcomeController < ApplicationController
   def index
     if params[:tag]
