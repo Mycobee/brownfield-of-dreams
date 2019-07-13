@@ -9,7 +9,7 @@ describe "as a registed user" do
     end
     it "takes me to /invite" do
       visit dashboard_path
-      click_button("Send an Invite")
+      click_link("Send an Invite")
       expect(current_path).to eq(invite_index_path)
     end
   end
