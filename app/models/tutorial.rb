@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Tutorial < ApplicationRecord
-  has_many :videos, -> { order(position: :ASC) }
+  has_many :videos, -> { order(position: :ASC) }, dependent: :destroy
   acts_as_taggable_on :tags, :tag_list
   accepts_nested_attributes_for :videos
 	validates_presence_of :title
@@ -22,7 +22,7 @@ class Tutorial < ApplicationRecord
 			title = "Tutorial Has No Videos"
 			description = ""
 			videos << Video.new(title: title, description: description)
-		end	
+		end
 	end
 end
 

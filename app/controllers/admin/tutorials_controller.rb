@@ -5,7 +5,16 @@ class Admin::TutorialsController < Admin::BaseController
     @tutorial = Tutorial.find(params[:id])
   end
 
-  def create; end
+  def create
+    tutorial = Tutorial.create(new_tutorial_params)
+    if tutorial.save
+      flash[:message] = 'Successfully created tutorial.'
+      redirect_to tutorial_path(tutorial.id)
+    else
+      flash[:error] = 'Invalid information entered, please try again.'
+      render :new
+    end
+  end
 
   def new
     @tutorial = Tutorial.new
@@ -13,7 +22,7 @@ class Admin::TutorialsController < Admin::BaseController
 
   def update
     tutorial = Tutorial.find(params[:id])
-    if tutorial.update(tutorial_params)
+    if tutorial.update(tutorial_tag_params)
       flash[:success] = "#{tutorial.title} tagged!"
     end
     redirect_to edit_admin_tutorial_path(tutorial)
@@ -21,7 +30,11 @@ class Admin::TutorialsController < Admin::BaseController
 
   private
 
-  def tutorial_params
+  def tutorial_tag_params
     params.require(:tutorial).permit(:tag_list)
+  end
+
+  def new_tutorial_params
+    params.require(:tutorial).permit(:title, :description, :thumbnail)
   end
 end
