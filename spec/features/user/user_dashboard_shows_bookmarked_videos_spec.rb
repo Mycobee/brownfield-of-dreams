@@ -10,10 +10,10 @@ describe "As a logged in user When I visit '/dashboard'" do
     @tutorial1.videos << @video1
     @tutorial2 = create(:tutorial)
     @video3 = create(:video)
-    @video_4 = create(:video)
+    @video4 = create(:video)
     @video2 = create(:video)
     @tutorial2.videos << @video3
-    @tutorial2.videos << @video_4
+    @tutorial2.videos << @video4
     @tutorial2.videos << @video2
     user.videos << @video1
     user.videos << @video2

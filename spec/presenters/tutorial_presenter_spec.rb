@@ -27,7 +27,7 @@ describe TutorialFacade do
         expect(presenter.next_video).to eq(@video2)
       end
 
-      it 'returns the last video if the current video is the last in the list' do
+      it 'returns the last video if the current video is last' do
         presenter = TutorialFacade.new(@tutorial, @video2.id)
         expect(presenter.next_video).to eq(@video2)
       end

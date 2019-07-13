@@ -19,10 +19,6 @@ class Tutorial < ApplicationRecord
     videos.empty?
   end
 
-  def self.tag
-    tagged_with(params[:tag]).paginate(page: params[:page], per_page: 5)
-  end
-
   def add_default_video
     title = 'Tutorial Has No Videos'
     description = ''
