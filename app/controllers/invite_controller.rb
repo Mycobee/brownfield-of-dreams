@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # A controller for invitation paths
+
 class InviteController < ApplicationController
   def new; end
 
