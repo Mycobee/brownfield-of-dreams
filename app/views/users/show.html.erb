@@ -6,6 +6,9 @@
 	  <ul>
 	    <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
 	    <li> <%= current_user.email%> </li>
+			<% if current_user.activated == true %>
+	    	<li> Status: Active </li>
+			<% end %>
 	  </ul>
 	  <section class="bookmarks_section">
 	    <h1>Bookmarked Segments</h1>

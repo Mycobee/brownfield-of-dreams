@@ -16,7 +16,7 @@ RSpec.describe Tutorial, type: :model do
 		end
 	end
 
-	describe 'instance methods' do
+	describe 'instance methods' do 
 		it '#no_videos?' do
 			tutorial = create(:tutorial)
 			expect(tutorial.no_videos?).to eq(true)
@@ -33,7 +33,7 @@ RSpec.describe Tutorial, type: :model do
 			expect(@tutorial_1.non_classroom?).to be_truthy
 		end
 	end
-
+  
 	describe 'class methods' do
 		it '.non_classroom' do
 			expect(Tutorial.non_classroom.first).to eq(@tutorial_1)

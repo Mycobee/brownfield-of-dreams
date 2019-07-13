@@ -25,3 +25,4 @@ class Tutorial < ApplicationRecord
 		end
 	end
 end
+
