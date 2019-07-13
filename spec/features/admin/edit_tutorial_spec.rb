@@ -7,9 +7,9 @@ describe 'An Admin can edit a tutorial' do
   let(:admin)    { create(:admin) }
 
   scenario 'by adding a video', :js, :vcr do
-    VCR.use_cassette("github/admin") do
+    VCR.use_cassette('github/admin') do
       allow_any_instance_of(ApplicationController).to \
-      receive(:current_user).and_return(admin)
+        receive(:current_user).and_return(admin)
 
       visit edit_admin_tutorial_path(tutorial)
 

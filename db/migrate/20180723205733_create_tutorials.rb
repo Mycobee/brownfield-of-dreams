@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-# creates a tutorial table with title, description, thumbnail, playlist id, and classroom attributes
+# creates a tutorial table with title, description, thumbnail, playlist id,
+# and classroom attributes
 class CreateTutorials < ActiveRecord::Migration[5.2]
   def change
     create_table :tutorials do |t|

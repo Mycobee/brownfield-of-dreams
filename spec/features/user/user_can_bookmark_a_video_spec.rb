@@ -7,7 +7,7 @@ describe 'A registered user' do
     @tutorial = create(:tutorial, title: 'How to Tie Your Shoes')
     @user = create(:user)
     allow_any_instance_of(ApplicationController).to \
-    receive(:current_user).and_return(@user)
+      receive(:current_user).and_return(@user)
   end
   it 'can add videos to their bookmarks' do
     visit tutorial_path(@tutorial)

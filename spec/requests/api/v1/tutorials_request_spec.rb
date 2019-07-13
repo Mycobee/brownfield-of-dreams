@@ -29,7 +29,7 @@ describe 'Tutorials API' do
 
   it 'sends a single tutorial' do
     get "/api/v1/tutorials/#{@tutorial1.id}"
-    
+
     expect(response).to be_successful
 
     parsed = JSON.parse(response.body, symbolize_names: true)

@@ -7,6 +7,7 @@ if ActiveRecord.gem_version >= Gem::Version.new('5.0')
 else
   class ActsAsTaggableOnMigration < ActiveRecord::Migration; end
 end
+# rubocop:disable Metrics/MethodLength
 ActsAsTaggableOnMigration.class_eval do
   def self.up
     create_table :tags do |t|
@@ -31,6 +32,7 @@ ActsAsTaggableOnMigration.class_eval do
     add_index :taggings, :tag_id
     add_index :taggings, %i[taggable_id taggable_type context]
   end
+  # rubocop:enable Metrics/MethodLength
 
   def self.down
     drop_table :taggings
