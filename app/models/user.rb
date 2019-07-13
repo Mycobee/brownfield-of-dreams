@@ -15,8 +15,8 @@ class User < ApplicationRecord
 
   def self.bookmarks(user)
     Tutorial.includes(:videos)
-    .order(:position, :id)
-    .where("videos.id" => user.videos)
-    .references(:video)
+            .order(:position, :id)
+            .where('videos.id' => user.videos)
+            .references(:video)
   end
 end

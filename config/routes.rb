@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-	get '/users/:id', to: 'users#update'
+  get '/users/:id', to: 'users#update'
   root 'welcome#index'
   get 'tags/:tag', to: 'welcome#index', as: :tag
   get '/register', to: 'users#new'

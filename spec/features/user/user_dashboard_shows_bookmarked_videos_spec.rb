@@ -1,4 +1,6 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 describe "As a logged in user When I visit '/dashboard'" do
   before :each do
@@ -19,17 +21,17 @@ describe "As a logged in user When I visit '/dashboard'" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
   end
 
-  it "shows a list of all bookmarked segments under the Bookmarked Segments section" do
-    VCR.use_cassette("github/dashboard", allow_playback_repeats: true) do
+  it 'shows a list of all bookmarked segments under the Bookmarked Segments section' do
+    VCR.use_cassette('github/dashboard', allow_playback_repeats: true) do
       visit dashboard_path
-      within(".bookmarks_section") do
+      within('.bookmarks_section') do
         expect(page).to have_all_of_selectors("#tutorial_#{@tutorial_1.id}_section", "#tutorial_#{@tutorial_2.id}_section")
       end
     end
   end
 
-  it "shows videos organized by which tutorial they are a part of" do
-    VCR.use_cassette("github/dashboard", allow_playback_repeats: true) do
+  it 'shows videos organized by which tutorial they are a part of' do
+    VCR.use_cassette('github/dashboard', allow_playback_repeats: true) do
       visit dashboard_path
       within("#tutorial_#{@tutorial_1.id}_section") do
         expect(page).to have_all_of_selectors("#video_#{@video_1.id}")
@@ -40,12 +42,12 @@ describe "As a logged in user When I visit '/dashboard'" do
     end
   end
 
-  it "shows videos should be ordered by their position" do
-    VCR.use_cassette("github/dashboard", allow_playback_repeats: true) do
+  it 'shows videos should be ordered by their position' do
+    VCR.use_cassette('github/dashboard', allow_playback_repeats: true) do
       visit dashboard_path
-      expect(page.all(".video_frame")[0]).to have_selector("#video_#{@video_1.id}")
-      expect(page.all(".video_frame")[1]).to have_selector("#video_#{@video_3.id}")
-      expect(page.all(".video_frame")[2]).to have_selector("#video_#{@video_2.id}")
+      expect(page.all('.video_frame')[0]).to have_selector("#video_#{@video_1.id}")
+      expect(page.all('.video_frame')[1]).to have_selector("#video_#{@video_3.id}")
+      expect(page.all('.video_frame')[2]).to have_selector("#video_#{@video_2.id}")
     end
   end
 end

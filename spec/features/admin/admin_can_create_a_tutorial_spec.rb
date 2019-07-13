@@ -1,7 +1,9 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-describe "As an admin when I visit /admin/tutorials/new" do
-  scenario "I am able to create a new tutorial" do
+require 'rails_helper'
+
+describe 'As an admin when I visit /admin/tutorials/new' do
+  scenario 'I am able to create a new tutorial' do
     admin = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
@@ -14,6 +16,6 @@ describe "As an admin when I visit /admin/tutorials/new" do
 
     new_tutorial = Tutorial.last
     expect(current_path).to eq(tutorial_path(new_tutorial.id))
-    expect(page).to have_content("Successfully created tutorial.")
+    expect(page).to have_content('Successfully created tutorial.')
   end
 end

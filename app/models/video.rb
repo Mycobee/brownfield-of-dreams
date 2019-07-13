@@ -5,10 +5,9 @@ class Video < ApplicationRecord
   has_many :users, through: :user_videos
   belongs_to :tutorial
 
-	def default_video?
-		title == "Tutorial Has No Videos" 
-	end
+  def default_video?
+    title == 'Tutorial Has No Videos'
+  end
 
   validates_presence_of :position
-
 end

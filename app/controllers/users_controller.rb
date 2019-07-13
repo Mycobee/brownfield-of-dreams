@@ -14,23 +14,23 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
-   if user.save
-			RegistrationNotifierMailer.inform(user).deliver_now
+    if user.save
+      RegistrationNotifierMailer.inform(user).deliver_now
       session[:user_id] = user.id
-    	flash[:email_notice] = "Your activation email has been sent"
-    	flash[:activation_notice] = "This account has not yet been activated. Please check your email."
+      flash[:email_notice] = 'Your activation email has been sent'
+      flash[:activation_notice] = 'This account has not yet been activated. Please check your email.'
       redirect_to dashboard_path
     else
       flash[:error] = 'Username already exists'
       render :new
-    end
+     end
   end
 
-	def update
-		User.find(params[:id]).update(activated: true)
+  def update
+    User.find(params[:id]).update(activated: true)
     redirect_to dashboard_path
-    flash[:email_notice] = "Thank you! Your account is now activated"
-	end
+    flash[:email_notice] = 'Thank you! Your account is now activated'
+  end
 
   private
 
