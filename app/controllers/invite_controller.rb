@@ -1,5 +1,9 @@
 class InviteController < ApplicationController
-  def index
+  def new
+  end
 
+  def create
+    invite = User.find_by()
+    require 'pry'; binding.pry
   end
 end
