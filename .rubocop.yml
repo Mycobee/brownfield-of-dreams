@@ -7,6 +7,8 @@ AllCops:
     - 'bin/**/*'
     #auto generated line lengths
     - 'node_modules/**/*'
+    #long lines in schema
+    - 'db/schema.rb'
     
      
 
