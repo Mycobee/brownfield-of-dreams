@@ -21,6 +21,14 @@ describe "As a guest on the registration path who fills in all fields" do
 			expect(page).to have_content("Your activation email has been sent")
 			expect(page).to have_content("This account has not yet been activated. Please check your email.")
 		end	
+
+		it "updates the user activation status when link url is clicked", type: :request do
+			user = create(:user)
+			get "/users/#{user.id}"
+			user.reload
+
+			expect(user.activated).to be_truthy
+		end	
 	end
 end
 
