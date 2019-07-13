@@ -1,15 +1,13 @@
-inherit_from: .rubocop_todo.yml
-require:
-  - rubocop/cop/internal_affairs
-  - rubocop-performance
-  - rubocop-rspec
 
 AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
-  TargetRubyVersion: 2.3
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    - 'Rakefile'
+  TargetRubyVersion: 2.4.1
 
 Naming/PredicateName:
   # Method define macros for dynamically generated method.
@@ -24,11 +22,6 @@ Style/FormatStringToken:
   # look like unannotated format string tokens to this cop.
   Exclude:
     - spec/**/*
-
-Style/IpAddresses:
-  # The test for this cop includes strings that would cause offenses
-  Exclude:
-  - spec/rubocop/cop/style/ip_addresses_spec.rb
 
 Layout/EndOfLine:
   EnforcedStyle: lf
@@ -88,11 +81,3 @@ Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*.rb'
 
-RSpec/PredicateMatcher:
-  EnforcedStyle: explicit
-
-RSpec/MessageSpies:
-  EnforcedStyle: receive
-
-RSpec/NestedGroups:
-  Max: 7
