@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-
+# rubocop:disable all
 Rails.application.configure do
+# rubocop:enable all
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = true
   # Settings specified here will take precedence over those in config/application.rb.
@@ -9,18 +10,18 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
-	config.action_mailer.default_url_options = { :host => "localhost:3000" }	
-	config.action_mailer.delivery_method = :smtp
-	config.action_mailer.smtp_settings = {
-    :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRID_PASSWORD'],
-    :domain => 'localhost:3000',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: 'localhost:3000',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
   }
-  
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -73,5 +74,5 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-#	config.action_mailer.default_url_options = { :host => 'localhost' }
+  #  config.action_mailer.default_url_options = { :host => 'localhost' }
 end

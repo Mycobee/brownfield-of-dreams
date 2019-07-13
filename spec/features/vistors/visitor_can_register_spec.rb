@@ -18,7 +18,7 @@ describe 'visitor can create an account', :js do
 
       click_on 'Sign up now.'
 
-      expect(current_path).to eq(new_user_path)
+      expect(current_path).to eq('/register')
 
       fill_in 'user[email]', with: email
       fill_in 'user[first_name]', with: first_name

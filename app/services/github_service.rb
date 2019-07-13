@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# this service will connect a user to github with a token
 class GithubService
   def initialize(token)
     @conn = Faraday.new(url: 'https://api.github.com') do |faraday|
