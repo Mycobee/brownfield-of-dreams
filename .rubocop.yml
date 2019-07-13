@@ -5,9 +5,10 @@ AllCops:
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
     - 'bin/**/*'
-    #auto generated line lengths
     - 'node_modules/**/*'
-    #long lines in schema
+    #auto generated line lengths
+    - 'app/controllers/users_controller.rb'
+    #long lines needed for strong params and controller functionality
     
      
 
@@ -74,6 +75,11 @@ Lint/UselessAccessModifier:
 Lint/BooleanSymbol:
   Enabled: false
 
+Naming/MemoizedInstanceVariableName:
+  Exclude: 
+    - 'app/controllers/sessions_controller.rb'
+    #@user is a descriptive variable for current_user
+    
 Metrics/BlockLength:
   Exclude:
     - 'Rakefile'
@@ -88,9 +94,15 @@ Metrics/ModuleLength:
 
 Metrics/LineLength:
   Exclude:
+    - 'spec/rails_helper.rb'
+    #auto generated rails_helper lines are longer than 80
     - 'db/schema.rb'
     - 'lib/tasks/youtube_seed.rake' 
     #longer lines needed for data generation
+    - 'app/controllers/admin/api/v1/tutorial_sequencer_controller.rb'
+    #long namespaced class name
+    - 'app/controllers/friendships_controller.rb'
+    #longer than 80 chars needed for find_or_create_by
   IgnoredPatterns: ['#', 'allow_any_instance_of', 'VCR.use_cassette']
 #helpful code comments ignored.  Rails.application blocks are longer than rubocop likes, but necessary. 
 
@@ -98,3 +110,8 @@ Style/ClassAndModuleChildren:
   Exclude:
     - 'app/controllers/**/*' 
 #ignores errors wanting more wrappers around controllers, :: syntax is more concise
+
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/tutorials_controller.rb' 
+#ignores error about necessary conditional

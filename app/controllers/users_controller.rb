@@ -18,8 +18,9 @@ class UsersController < ApplicationController
     if user.save
       RegistrationNotifierMailer.inform(user).deliver_now
       session[:user_id] = user.id
+      notice = 'This account has not yet been activated. Please check your email.'
       flash[:email_notice] = 'Your activation email has been sent'
-      flash[:activation_notice] = 'This account has not yet been activated. Please check your email.'
+      flash[:activation_notice] = notice
       redirect_to dashboard_path
     else
       flash[:error] = 'Username already exists'
