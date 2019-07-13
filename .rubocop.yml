@@ -8,7 +8,6 @@ AllCops:
     #auto generated line lengths
     - 'node_modules/**/*'
     #long lines in schema
-    - 'db/schema.rb'
     
      
 
@@ -81,11 +80,16 @@ Metrics/BlockLength:
     - '**/*.rake'
     - 'spec/**/*.rb'
     - '**/*.gemspec'
+    - 'db/schema.rb'
 
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*.rb'
 
 Metrics/LineLength:
+  Exclude:
+    - 'db/schema.rb'
+    - 'lib/tasks/youtube_seed.rake' 
+    #longer lines needed for data generation
   IgnoredPatterns: ['#']
 #helpful code comments ignored.  Rails.application blocks are longer than rubocop likes, but necessary. 
