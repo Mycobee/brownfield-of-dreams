@@ -19,6 +19,6 @@ RSpec.describe RegistrationNotifierMailer, type: :mailer do
 
     expect(email.to.first).to eq(invited.github_email)
     expect(email.subject).to eq('Join the Field of Dreams')
-    expect(email.body.encoded).to match(invited.id.to_s)
+    expect(email.body.encoded).to match(invited.github_login.to_s)
   end
 end
