@@ -115,5 +115,6 @@ m3_tutorial.videos.create!(
   'thumbnail' => 'https://i.ytimg.com/vi/FcgkfZEv_LI/hqdefault.jpg',
   'position' => 6
 )
-
+# rubocop:disable all
 User.create!(email: 'admin@example.com', first_name: 'Bossy', last_name: 'McBosserton', password: 'password', role: :admin)
+# rubocop:enable all
