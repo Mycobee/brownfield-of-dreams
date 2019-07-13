@@ -18,7 +18,6 @@ describe "As a guest on the registration path who fills in all fields" do
 			click_button 'Create Account'
 
 			expect(current_path).to eq(dashboard_path)
-save_and_open_page
 			expect(page).to have_content("Your activation email has been sent")
 			expect(page).to have_content("This account has not yet been activated. Please check your email.")
 		end	
