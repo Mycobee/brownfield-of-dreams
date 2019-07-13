@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-
+# rubocop:disable all
 Rails.application.routes.draw do
+# rubocop:enable all
   namespace :api do
     namespace :v1 do
       resources :tutorials, only: %i[show index]
