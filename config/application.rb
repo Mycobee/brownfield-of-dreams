@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'boot'
-
 require 'rails'
 # Pick the frameworks you want:
 require 'active_model/railtie'
@@ -20,7 +18,9 @@ require 'sprockets/railtie'
 Bundler.require(*Rails.groups)
 
 module PersonalProject
+	# rubocop:disable all
   class Application < Rails::Application
+		# rubocop:enable all
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

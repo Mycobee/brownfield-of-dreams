@@ -1,4 +1,6 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe RegistrationNotifierMailer, type: :mailer do
 	it "Sends a registration email" do

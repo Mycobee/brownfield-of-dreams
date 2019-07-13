@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# this service connects to the youtube API
 class YoutubeService
   def video_info(id)
     params = { part: 'snippet,contentDetails,statistics', id: id }

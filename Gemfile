@@ -30,18 +30,20 @@ gem 'omniauth-google-oauth2'
 gem 'will_paginate'
 gem 'yt', '~> 0.29.1'
 
+group :test do
+  gem 'webdrivers'
+end
+
 group :development, :test do
   gem 'awesome_print'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
-  gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'foundation-rails'
   gem 'launchy'
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop'
-  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'vcr'

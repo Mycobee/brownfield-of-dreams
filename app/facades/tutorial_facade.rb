@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# this facade presents data for the tutorial pages
 class TutorialFacade < SimpleDelegator
   def initialize(tutorial, video_id = nil)
     super(tutorial)
@@ -7,12 +8,11 @@ class TutorialFacade < SimpleDelegator
   end
 
   def current_video
-    if @video_id 
+    if @video_id
       videos.find(@video_id)
-		elsif 
-			no_videos?
-			add_default_video
-			videos.first
+    elsif no_videos?
+      add_default_video
+      videos.first
     else
       videos.first
     end

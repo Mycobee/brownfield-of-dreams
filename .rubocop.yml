@@ -1,0 +1,117 @@
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    #auto generated line lengths
+    - 'app/controllers/users_controller.rb'
+    #long lines needed for strong params and controller functionality
+    
+     
+
+  TargetRubyVersion: 2.4.1
+
+Naming/PredicateName:
+  # Method define macros for dynamically generated method.
+  MethodDefinitionMacros:
+    - define_method
+    - define_singleton_method
+    - def_node_matcher
+    - def_node_search
+
+Style/FormatStringToken:
+  # Because we parse a lot of source codes from strings. Percent arrays
+  # look like unannotated format string tokens to this cop.
+  Exclude:
+    - spec/**/*
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+  ExpectedOrder:
+      - module_inclusion
+      - constants
+      - public_class_methods
+      - initializer
+      - instance_methods
+      - protected_methods
+      - private_methods
+
+# Trailing white space is meaningful in code examples
+Layout/TrailingWhitespace:
+  AllowInHeredoc: true
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Layout/AlignHash:
+  EnforcedHashRocketStyle:
+    - key
+    - table
+  EnforcedColonStyle:
+    - key
+    - table
+
+Lint/InterpolationCheck:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Lint/UselessAccessModifier:
+  MethodCreatingMethods:
+    - 'def_matcher'
+    - 'def_node_matcher'
+
+Lint/BooleanSymbol:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Exclude: 
+    - 'app/controllers/sessions_controller.rb'
+    #@user is a descriptive variable for current_user
+    
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - '**/*.gemspec'
+    - 'db/schema.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/LineLength:
+  Exclude:
+    - 'spec/rails_helper.rb'
+    #auto generated rails_helper lines are longer than 80
+    - 'db/schema.rb'
+    - 'lib/tasks/youtube_seed.rake' 
+    #longer lines needed for data generation
+    - 'app/controllers/admin/api/v1/tutorial_sequencer_controller.rb'
+    #long namespaced class name
+    - 'app/controllers/friendships_controller.rb'
+    #longer than 80 chars needed for find_or_create_by
+  IgnoredPatterns: ['#', 'allow_any_instance_of', 'VCR.use_cassette']
+#helpful code comments ignored.  Rails.application blocks are longer than rubocop likes, but necessary. 
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/**/*' 
+#ignores errors wanting more wrappers around controllers, :: syntax is more concise
+
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/tutorials_controller.rb' 
+#ignores error about necessary conditional

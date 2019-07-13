@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# controller for github oauth
 class GithubController < ApplicationController
 	def create
 		token	= auth_hash['credentials']['token']
@@ -8,7 +9,7 @@ class GithubController < ApplicationController
 		github_login: auth_hash[:info][:nickname], \
 		github_email: auth_hash[:info][:email])
 		redirect_to dashboard_path
-	end
+  end
 
   private
 

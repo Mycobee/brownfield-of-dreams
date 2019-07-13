@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# a user model that stores names, tokens, and friendships
 class User < ApplicationRecord
   has_one :token, dependent: :destroy
   has_many :user_videos
@@ -15,8 +16,8 @@ class User < ApplicationRecord
 
   def self.bookmarks(user)
     Tutorial.includes(:videos)
-    .order(:position, :id)
-    .where("videos.id" => user.videos)
-    .references(:video)
+            .order(:position, :id)
+            .where('videos.id' => user.videos)
+            .references(:video)
   end
 end

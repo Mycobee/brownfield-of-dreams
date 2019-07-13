@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# this service will change the position of videos if needed
 class TutorialSequencer
   def initialize(tutorial, sequenced_video_ids)
     @tutorial = tutorial
@@ -20,11 +21,12 @@ class TutorialSequencer
 
   def update_position_if_changed!
     sequenced_video_ids.each.with_index(1) do |video_id, index|
-      video = videos.find do |video|
+      video_to_change = videos.find do |video|
         video.id == video_id.to_i
       end
-
-      video.update(position: index) if video.position != index
+      if video_to_change.position != index
+        video_to_change.update(position: index)
+      end
     end
   end
 end

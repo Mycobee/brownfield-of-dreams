@@ -1,14 +1,15 @@
 # frozen_string_literal: true
-
+# rubocop:disable all
 Rails.application.routes.draw do
+# rubocop:enable all
   namespace :api do
     namespace :v1 do
       resources :tutorials, only: %i[show index]
-      resources :videos, only: [:show]
+      resources :videos, only: %i[show index]
     end
   end
 
-	get '/users/:id', to: 'users#update'
+  get '/users/:id', to: 'users#update'
   root 'welcome#index'
   get 'tags/:tag', to: 'welcome#index', as: :tag
   get '/register', to: 'users#new'

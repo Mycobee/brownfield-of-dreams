@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# adds foreign keys to the tags table
 # This migration comes from acts_as_taggable_on_engine (originally 2)
 if ActiveRecord.gem_version >= Gem::Version.new('5.0')
   class AddMissingUniqueIndices < ActiveRecord::Migration[4.2]; end
@@ -7,6 +8,7 @@ else
   class AddMissingUniqueIndices < ActiveRecord::Migration; end
 end
 AddMissingUniqueIndices.class_eval do
+  # rubocop:disable Metrics/LineLength
   def self.up
     add_index :tags, :name, unique: true
 
@@ -16,6 +18,7 @@ AddMissingUniqueIndices.class_eval do
               %i[tag_id taggable_id taggable_type context tagger_id tagger_type],
               unique: true, name: 'taggings_idx'
   end
+  # rubocop:enable Metrics/LineLength
 
   def self.down
     remove_index :tags, :name
