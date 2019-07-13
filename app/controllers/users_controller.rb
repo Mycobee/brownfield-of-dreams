@@ -25,9 +25,14 @@ class UsersController < ApplicationController
     end
   end
 
+	def update
+		User.find(params[:id]).update(activated: true)
+    redirect_to dashboard_path
+	end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :password)
+    params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
   end
 end
