@@ -93,3 +93,8 @@ Metrics/LineLength:
     #longer lines needed for data generation
   IgnoredPatterns: ['#']
 #helpful code comments ignored.  Rails.application blocks are longer than rubocop likes, but necessary. 
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/**/*' 
+#ignores errors wanting more wrappers around controllers, :: syntax is more concise
