@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe ApplicationJob do
-	it "exists" do
-		expect(subject).to be_a(ApplicationJob)	
-	end
+  it 'exists' do
+    expect(subject).to be_a(ApplicationJob)
+  end
 end

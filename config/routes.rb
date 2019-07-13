@@ -51,5 +51,5 @@ Rails.application.routes.draw do
   resources :friendships, only: :create
 
   resources :invite, only: :create
-  get "/invite", to: "invite#new"
+  get '/invite', to: 'invite#new'
 end
