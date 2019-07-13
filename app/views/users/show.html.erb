@@ -51,7 +51,7 @@
 		      	<% facade.followers(5).each do |github_user| %>
 			        <li><%= link_to github_user.login, github_user.html_url %></li><br>
 							<% if facade.valid_friend?(github_user.html_url) %>
-								<%= button_to "Add to Friends", friendships_path(friend_html: github_user.html_url) %>
+								<%= button_to "Add to Friends", friendships_path(friend_html: github_user.html_url), class: "btn btn-primary mb1 bg-teal" %>
 							<% end %>
 			      <% end %>
 		      </ul>
@@ -63,13 +63,15 @@
 		      <% facade.following(5).each do |github_user| %>
 		        <li><%= link_to github_user.login, github_user.html_url %></li><br>
 						<% if facade.valid_friend?(github_user.html_url) %>
-							<%= button_to "Add to Friends", friendships_path(friend_html: github_user.html_url) %>
+							<%= button_to "Add to Friends", friendships_path(friend_html: github_user.html_url), class: "btn btn-primary mb1 bg-teal"  %>
 						<% end %>
 		      <% end %>
 		    </ul>
 			</section>
 	  </section>
 	<% else %>
-		<%= link_to '<button type="button">Connect to Github</button>'.html_safe, "/auth/github" %>
+		<%= link_to "Connect to Github", "/auth/github", class: "btn btn-primary mb1 bg-teal" %>
 	<% end %>
+	<br>
+	<%= link_to "Send an Invite", invite_index_path, class: "btn btn-primary mb1 bg-teal" %>
 </section>
