@@ -6,7 +6,7 @@ describe UserDashboardFacade do
   before :each do
     user = create(:user)
     user.token = Token.create(github_token: ENV['GITHUB_API_KEY'])
-    @test_facade = UserDashboardFacade.new(user, user.token)
+    @test_facade = UserDashboardFacade.new(user)
   end
 
   it 'exists' do

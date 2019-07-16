@@ -2,9 +2,9 @@
 
 # this facade presents data for the user dashboard
 class UserDashboardFacade
-  def initialize(user, token)
+  def initialize(user)
     @current_user = user
-    @token = token
+    @token = user.token
   end
 
   def repos(limit)

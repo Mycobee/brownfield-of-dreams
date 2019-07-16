@@ -6,10 +6,10 @@ describe 'as a registed user' do
   before :each do
     user = create(:user)
     user.token = Token.new(github_token: ENV['GITHUB_API_KEY_2'])
-    user2 = create(:user, github_email: "1234@test.com", github_login: "D")
+    user2 = create(:user, github_email: '1234@test.com', github_login: 'D')
     user2.token = Token.new(github_token: ENV['GITHUB_API_KEY'])
     allow_any_instance_of(ApplicationController).to \
-     receive(:current_user).and_return(user)
+      receive(:current_user).and_return(user)
   end
 
   describe 'On / dashboard when I click on send an invite' do
@@ -27,8 +27,8 @@ describe 'as a registed user' do
       VCR.use_cassette('/github/dashboard', allow_playback_repeats: true) do
         visit(invite_path)
 
-        fill_in("invite_github_handle", with: "D")
-        click_button "Send Invite"
+        fill_in('invite_github_handle', with: 'D')
+        click_button 'Send Invite'
 
         expect(current_path).to eq(dashboard_path)
         expect(page).to have_content('Successfully sent invite!')
@@ -36,11 +36,10 @@ describe 'as a registed user' do
     end
   end
 
-
   # rubocop:disable Metrics/LineLength
-  describe "Invite sad path" do
-    it "does not allow us to send an invite" do
-      VCR.use_cassette("/github/dashboard", allow_playback_repeats: true) do
+  describe 'Invite sad path' do
+    it 'does not allow us to send an invite' do
+      VCR.use_cassette('/github/dashboard', allow_playback_repeats: true) do
         visit(invite_path)
         fill_in('invite_github_handle', with: 'WHomer')
         click_button 'Send Invite'
